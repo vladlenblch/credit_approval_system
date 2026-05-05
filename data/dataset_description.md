@@ -20,3 +20,7 @@
 - Repayment history for the previously disbursed credits in Home Credit related to the loans in our sample.
 - There is a) one row for every payment that was made plus b) one row each for missed payment.
 - One row is equivalent to one payment of one installment OR one installment corresponding to one payment of one previous Home Credit credit related to loans in our sample.
+
+## source
+
+home-credit-default-risk[https://www.kaggle.com/competitions/home-credit-default-risk/data]
