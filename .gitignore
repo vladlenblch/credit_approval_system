@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs and caches
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local data files
+data/.DS_Store
+data/all_original_datasets.zip
+data/needed_datasets/*.csv
+
+# ML artifacts
+models/
+artifacts/
+*.pkl
+*.joblib
+*.cbm
+*.onnx
