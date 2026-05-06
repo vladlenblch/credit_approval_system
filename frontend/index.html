@@ -3,13 +3,83 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ML system</title>
+        <title>Credit Approval System</title>
         <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
         <main>
-            <p id="api-message">Загрузка сообщения от backend API...</p>
+            <section class="page-header">
+                <h1>Credit Approval System</h1>
+            </section>
+
+            <form id="features-form">
+                <div class="form-grid">
+                    <label>
+                        <span class="field-title">Возраст заемщика, лет</span>
+                        <span class="field-name">age</span>
+                        <input name="age" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Просрочки 30-59 дней за последние 2 года, раз</span>
+                        <span class="field-name">NumberOfTime30-59DaysPastDueNotWorse</span>
+                        <input name="NumberOfTime30-59DaysPastDueNotWorse" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Ежемесячный доход, у.е.</span>
+                        <span class="field-name">MonthlyIncome</span>
+                        <input name="MonthlyIncome" type="number" step="any" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Просрочки 60-89 дней за последние 2 года, раз</span>
+                        <span class="field-name">NumberOfTime60-89DaysPastDueNotWorse</span>
+                        <input name="NumberOfTime60-89DaysPastDueNotWorse" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Долговая нагрузка, доля</span>
+                        <span class="field-name">DebtRatio</span>
+                        <input name="DebtRatio" type="number" step="any" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Просрочки 90 дней и больше, раз</span>
+                        <span class="field-name">NumberOfTimes90DaysLate</span>
+                        <input name="NumberOfTimes90DaysLate" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Количество иждивенцев, чел.</span>
+                        <span class="field-name">NumberOfDependents</span>
+                        <input name="NumberOfDependents" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Количество кредитов по недвижимости, шт.</span>
+                        <span class="field-name">NumberRealEstateLoansOrLines</span>
+                        <input name="NumberRealEstateLoansOrLines" type="number" step="1" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Доля использованного кредитного лимита, доля</span>
+                        <span class="field-name">RevolvingUtilizationOfUnsecuredLines</span>
+                        <input name="RevolvingUtilizationOfUnsecuredLines" type="number" step="any" min="0">
+                    </label>
+
+                    <label>
+                        <span class="field-title">Количество открытых кредитов и кредитных линий, шт.</span>
+                        <span class="field-name">NumberOfOpenCreditLinesAndLoans</span>
+                        <input name="NumberOfOpenCreditLinesAndLoans" type="number" step="1" min="0">
+                    </label>
+                </div>
+
+                <button type="submit">Отправить</button>
+            </form>
+
+            <p id="backend-result" class="result-text">Ответ backend появится здесь</p>
         </main>
         <script src="script.js"></script>
     </body>

@@ -2,7 +2,26 @@
 
 ## Установка и запуск локально
 
-to be completed
+```bash
+# клонировать репозиторий
+git clone https://github.com/vladlenblch/credit_approval_system
+cd credit_approval_system
+
+# создать и активировать виртуальное окружение
+python -m venv .venv
+source .venv/bin/activate
+
+# установить зависимости
+pip install -r requirements.txt
+
+# запустить бэкенд
+fastapi dev backend/main.py
+
+# запустить фронтенд
+python -m http.server 8080 -d frontend
+
+# сайт будет доступен по адресу http://localhost:8080/
+```
 
 ## О проекте
 
@@ -10,7 +29,8 @@ to be completed
 
 ### Датасет
 
-to be completed
+[Описание датасета](/data/needed_datasets/data_description.md) <br>
+[Исходный датасет](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 ### Гиперпараметры
 

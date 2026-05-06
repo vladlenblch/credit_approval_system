@@ -2,7 +2,26 @@
 
 ## Installation and local setup
 
-to be completed
+```bash
+# clone repository
+git clone https://github.com/vladlenblch/credit_approval_system
+cd credit_approval_system
+
+# create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate
+
+# install requirements
+pip install -r requirements.txt
+
+# run backend
+fastapi dev backend/main.py
+
+# run frontend
+python -m http.server 8080 -d frontend
+
+# site will be available at http://localhost:8080/
+```
 
 ## About
 
@@ -10,7 +29,8 @@ to be completed
 
 ### Dataset
 
-to be completed
+[Dataset description](/data/needed_datasets/data_description.md) <br>
+[Source dataset](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 ### Hyperparameters
 
@@ -36,6 +56,6 @@ ML:
 ## Project structure
 
 - `/backend` - backend API
-- `/frontend` - frontend фзздшсфешщт
+- `/frontend` - frontend application
 - `/ml` - ML layer
 - `/data` - project data

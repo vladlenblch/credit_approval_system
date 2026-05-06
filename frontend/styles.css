@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: #ffffff;
+    color: #1d1d1f;
+}
+
+main {
+    width: min(960px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.page-header p {
+    margin: 0;
+    color: #6e6e73;
+    font-size: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+}
+
+label {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    color: #424245;
+    font-size: 14px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.field-title {
+    color: #1d1d1f;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.field-name {
+    color: #6e6e73;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+}
+
+input {
+    width: 100%;
+    height: 42px;
+    margin-top: 2px;
+    padding: 8px 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1d1d1f;
+    font: inherit;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+input:focus {
+    border-color: #0071e3;
+    outline: 3px solid rgba(0, 113, 227, 0.16);
+}
+
+button {
+    height: 42px;
+    margin-top: 24px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 8px;
+    background: #1d1d1f;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333336;
+}
+
+.result-text {
+    min-height: 42px;
+    margin: 24px 0 0;
+    padding: 11px 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    color: #1d1d1f;
+    font-size: 16px;
+}
+
+@media (max-width: 720px) {
+    main {
+        padding: 32px 0;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
