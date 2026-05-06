@@ -29,7 +29,6 @@ htmlcov/
 
 # Local data files
 data/.DS_Store
-data/all_original_datasets.zip
 data/needed_datasets/*.csv
 
 # ML artifacts
