@@ -32,7 +32,7 @@ to be completed
 
 ### Dataset
 
-[Dataset description](/data/needed_datasets/data_description.md) <br>
+[Dataset description](/data/data_description.md) <br>
 [Source dataset](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 Preprocessing:

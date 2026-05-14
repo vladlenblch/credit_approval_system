@@ -32,7 +32,7 @@ to be completed
 
 ### Датасет
 
-[Описание датасета](/data/needed_datasets/data_description.md) <br>
+[Описание датасета](/data/data_description.md) <br>
 [Исходный датасет](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 Препроцессинг:
