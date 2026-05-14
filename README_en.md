@@ -14,6 +14,9 @@ source .venv/bin/activate
 # install requirements
 pip install -r requirements.txt
 
+# prepare data
+python ml/prepare_data.py
+
 # run backend
 fastapi dev backend/main.py
 
@@ -32,6 +35,18 @@ to be completed
 [Dataset description](/data/needed_datasets/data_description.md) <br>
 [Source dataset](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
+Preprocessing:
+- stratified split
+- drop `Unnamed: 0`
+- fill missing values with train medians
+- missing flags and feature engineering
+
+Output:
+- `/data/processed/train.csv`
+- `/data/processed/valid.csv`
+- `/data/processed/test.csv`
+- `/data/processed/prepare_data_metadata.json` - preparation parameters
+
 ### Hyperparameters
 
 to be completed
@@ -40,10 +55,10 @@ to be completed
 
 to be completed
 
-## Technology stack and requirements
+## Technology stack
 
 Backend:
-- FastAPI >= 0.136.1
+- FastAPI
 
 Frontend:
 - HTML5
@@ -51,11 +66,15 @@ Frontend:
 - JavaScript ES6
 
 ML:
-- to be completed
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
 
 ## Project structure
 
 - `/backend` - backend API
 - `/frontend` - frontend application
 - `/ml` - ML layer
-- `/data` - project data
+- `/data` - original and preprocessed datasets

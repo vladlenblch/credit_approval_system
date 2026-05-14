@@ -30,6 +30,8 @@ htmlcov/
 # Local data files
 data/.DS_Store
 data/needed_datasets/*.csv
+data/processed/*.csv
+data/processed/*.json
 
 # ML artifacts
 models/
