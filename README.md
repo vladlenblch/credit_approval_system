@@ -14,9 +14,6 @@ source .venv/bin/activate
 # установить зависимости
 pip install -r requirements.txt
 
-# подготовить данные
-python ml/prepare_data.py
-
 # запустить бэкенд
 fastapi dev backend/main.py
 
@@ -36,41 +33,52 @@ to be completed
 [Исходный датасет](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 Препроцессинг:
+
 - сплит с сохранением пропорций
 - удаление `Unnamed: 0`
 - заполнение пропусков медианами train
 - missing-флаги и новые фичи
 
 Результат:
+
 - `/data/processed/train.csv`
 - `/data/processed/valid.csv`
 - `/data/processed/test.csv`
 - `/data/processed/prepare_data_metadata.json` - параметры подготовки
 
-### Гиперпараметры
+### Модели
 
-to be completed
+Для стекинга были использованы следующие модели:
 
-### CI/CD
+- `CatBoostClassifier`
+- `LGBMClassifier`
+- `XGBClassifier`
 
-to be completed
+Для каждой модели был выполнен подбор гиперпараметров с использованием `Optuna`. Оценка качества на каждой итерации оптимизации проводилась с помощью стратифицированной кросс-валидации `StratifiedKFold` с 3 фолдами.
 
 ## Технологический стек
 
 Backend:
+
 - FastAPI
 
 Frontend:
+
 - HTML5
 - CSS3
 - JavaScript ES6
 
 ML:
+
 - NumPy
 - Pandas
 - Matplotlib
 - Seaborn
 - Scikit-learn
+- Optuna
+- CatBoost
+- LightGBM
+- XGBoost
 
 ## Структура проекта
 

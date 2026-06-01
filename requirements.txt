@@ -5,3 +5,10 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+catboost
+xgboost
+lightgbm
+optuna
+catboost
+lightgbm
+xgboost

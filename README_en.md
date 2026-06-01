@@ -14,9 +14,6 @@ source .venv/bin/activate
 # install requirements
 pip install -r requirements.txt
 
-# prepare data
-python ml/prepare_data.py
-
 # run backend
 fastapi dev backend/main.py
 
@@ -36,41 +33,52 @@ to be completed
 [Source dataset](https://www.kaggle.com/competitions/GiveMeSomeCredit/data)
 
 Preprocessing:
+
 - stratified split
 - drop `Unnamed: 0`
 - fill missing values with train medians
 - missing flags and feature engineering
 
 Output:
+
 - `/data/processed/train.csv`
 - `/data/processed/valid.csv`
 - `/data/processed/test.csv`
 - `/data/processed/prepare_data_metadata.json` - preparation parameters
 
-### Hyperparameters
+### Models
 
-to be completed
+The following models were used as base learners in the stacking ensemble:
 
-### CI/CD
+- `CatBoostClassifier`
+- `LGBMClassifier`
+- `XGBClassifier`
 
-to be completed
+Hyperparameter optimization was performed separately for each model using `Optuna`. Model performance was evaluated during optimization using stratified cross-validation with `StratifiedKFold` with 3 folds.
 
 ## Technology stack
 
 Backend:
+
 - FastAPI
 
 Frontend:
+
 - HTML5
 - CSS3
 - JavaScript ES6
 
 ML:
+
 - NumPy
 - Pandas
 - Matplotlib
 - Seaborn
 - Scikit-learn
+- Optuna
+- CatBoost
+- LightGBM
+- XGBoost
 
 ## Project structure
 
