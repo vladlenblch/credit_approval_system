@@ -13,7 +13,7 @@ ARTIFACTS_DIR = PROJECT_ROOT / "artifacts"
 PROCESSED_DATA_DIR = PROJECT_ROOT / "data" / "processed"
 
 TARGET_COL = "SeriousDlqin2yrs"
-DECISION_THRESHOLD = 0.5
+DEFAULT_DECISION_THRESHOLD = 0.5
 
 RAW_FEATURES = [
     "RevolvingUtilizationOfUnsecuredLines",
@@ -46,6 +46,7 @@ class WeightedBlendModel:
         self.impute_values = self._load_impute_values()
         self.feature_columns = self._load_feature_columns()
         self.weights = self._load_weights()
+        self.decision_threshold = self._load_decision_threshold()
         self.models = self._load_models()
 
     def predict(self, payload):
@@ -64,8 +65,8 @@ class WeightedBlendModel:
 
         return {
             "default_probability": default_probability,
-            "approval_decision": "reject" if default_probability >= DECISION_THRESHOLD else "approve",
-            "decision_threshold": DECISION_THRESHOLD,
+            "approval_decision": "reject" if default_probability >= self.decision_threshold else "approve",
+            "decision_threshold": self.decision_threshold,
             "model_scores": model_scores,
             "blend_weights": self.weights,
         }
@@ -84,6 +85,15 @@ class WeightedBlendModel:
         metrics_path = ARTIFACTS_DIR / "ensemble" / "metrics.json"
         metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
         return metrics["weighted_blend"]["weights"]
+
+    def _load_decision_threshold(self):
+        threshold_path = ARTIFACTS_DIR / "ensemble" / "threshold_metrics.json"
+
+        if not threshold_path.exists():
+            return DEFAULT_DECISION_THRESHOLD
+
+        metrics = json.loads(threshold_path.read_text(encoding="utf-8"))
+        return metrics["best_threshold"]
 
     def _load_models(self):
         return {

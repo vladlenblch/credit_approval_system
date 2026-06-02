@@ -76,10 +76,44 @@
                     </label>
                 </div>
 
-                <button type="submit">Отправить</button>
+                <button id="submit-button" type="submit">Рассчитать</button>
             </form>
 
-            <p id="backend-result" class="result-text">Ответ backend появится здесь</p>
+            <section id="result-panel" class="result-panel is-empty" aria-live="polite">
+                <p id="result-status" class="result-status">Результат появится здесь</p>
+
+                <div id="result-content" class="result-content" hidden>
+                    <div class="decision-row">
+                        <div>
+                            <span class="result-label">Решение</span>
+                            <strong id="decision-value" class="decision-value"></strong>
+                        </div>
+                        <div>
+                            <span class="result-label">Вероятность дефолта</span>
+                            <strong id="probability-value" class="probability-value"></strong>
+                        </div>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div>
+                            <span class="result-label">Порог отказа</span>
+                            <span id="threshold-value" class="metric-value"></span>
+                        </div>
+                        <div>
+                            <span class="result-label">CatBoost</span>
+                            <span id="catboost-score" class="metric-value"></span>
+                        </div>
+                        <div>
+                            <span class="result-label">LightGBM</span>
+                            <span id="lightgbm-score" class="metric-value"></span>
+                        </div>
+                        <div>
+                            <span class="result-label">XGBoost</span>
+                            <span id="xgboost-score" class="metric-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <script src="script.js"></script>
     </body>

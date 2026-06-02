@@ -15,7 +15,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # запустить бэкенд
-fastapi dev backend/main.py
+python -m uvicorn backend.main:app --reload
 
 # запустить фронтенд
 python -m http.server 8080 -d frontend
@@ -26,6 +26,12 @@ python -m http.server 8080 -d frontend
 ## О проекте
 
 ML-сервис для оценки кредитного риска по данным заемщика. API возвращает вероятность дефолта и решение о выдаче кредита на основе weighted blend ансамбля.
+
+## Примеры
+
+![Approve example](assets/example_approve.png)
+
+![Reject example](assets/example_reject.png)
 
 ### Датасет
 
@@ -62,6 +68,26 @@ ML-сервис для оценки кредитного риска по дан�
 - weighted blend по весам, подобранным через `Optuna`
 - `/predict` API endpoint для инференса
 
+Метрики weighted blend:
+
+- OOF PR-AUC: `0.4058`
+- Test PR-AUC: `0.4095`
+
+### Бизнес-решение
+
+Порог отказа подбирается отдельно на OOF-предсказаниях по простой profit-функции:
+
+- хороший одобренный клиент: `+1`
+- дефолтный одобренный клиент: `-5`
+
+Итоговый threshold: `0.381`.
+
+На test:
+
+- profit: `16234`
+- approval rate: `0.8975`
+- bad recall rejected: `0.5612`
+
 ## Технологический стек
 
 Backend:
@@ -90,5 +116,8 @@ ML:
 
 - `/backend` - бэкенд-часть проекта с API
 - `/frontend` - фронтенд-часть проекта
-- `/ml` - ML-слой проекта
 - `/data` - исходные и предобработанные датасеты
+- `/ml` - ML-слой проекта
+- `/artifacts` - локальные артефакты моделей и ансамбля
+- `README.md` - описание проекта
+- `README_en.md` - описание проекта на английском

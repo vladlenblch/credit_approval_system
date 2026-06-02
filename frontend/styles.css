@@ -106,14 +106,91 @@ button:hover {
     background: #333336;
 }
 
-.result-text {
-    min-height: 42px;
+button:disabled {
+    background: #86868b;
+    cursor: wait;
+}
+
+.result-panel {
     margin: 24px 0 0;
-    padding: 11px 12px;
+    padding: 16px;
     border: 1px solid #d2d2d7;
     border-radius: 8px;
+    background: #ffffff;
     color: #1d1d1f;
+}
+
+.result-panel.is-empty {
+    color: #6e6e73;
+}
+
+.result-panel.is-approved {
+    border-color: #b7dec6;
+    background: #f4fbf6;
+}
+
+.result-panel.is-rejected {
+    border-color: #efc0bc;
+    background: #fff7f6;
+}
+
+.result-panel.is-error {
+    border-color: #efc0bc;
+    background: #fff7f6;
+    color: #b42318;
+}
+
+.result-status {
+    margin: 0;
     font-size: 16px;
+    font-weight: 600;
+}
+
+.result-content {
+    margin-top: 16px;
+}
+
+.decision-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.result-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #6e6e73;
+    font-size: 13px;
+}
+
+.decision-value,
+.probability-value {
+    display: block;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.is-approved .decision-value {
+    color: #1b7f3a;
+}
+
+.is-rejected .decision-value {
+    color: #b42318;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.metric-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 @media (max-width: 720px) {
@@ -127,5 +204,10 @@ button:hover {
 
     h1 {
         font-size: 28px;
+    }
+
+    .decision-row,
+    .metric-grid {
+        grid-template-columns: 1fr;
     }
 }
