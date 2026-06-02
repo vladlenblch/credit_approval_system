@@ -1,28 +1,5 @@
 # Credit Approval ML system
 
-## Установка и запуск локально
-
-```bash
-# клонировать репозиторий
-git clone https://github.com/vladlenblch/credit_approval_system
-cd credit_approval_system
-
-# создать и активировать виртуальное окружение
-python -m venv .venv
-source .venv/bin/activate
-
-# установить зависимости
-pip install -r requirements.txt
-
-# запустить бэкенд
-python -m uvicorn backend.main:app --reload
-
-# запустить фронтенд
-python -m http.server 8080 -d frontend
-
-# сайт будет доступен по адресу http://localhost:8080/
-```
-
 ## О проекте
 
 ML-сервис для оценки кредитного риска по данным заемщика. API возвращает вероятность дефолта и решение о выдаче кредита на основе weighted blend ансамбля.
