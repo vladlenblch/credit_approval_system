@@ -25,7 +25,7 @@ python -m http.server 8080 -d frontend
 
 ## About
 
-to be completed
+ML service for credit risk scoring based on borrower data. The API returns default probability and credit approval decision using a weighted blend ensemble.
 
 ### Dataset
 
@@ -48,13 +48,19 @@ Output:
 
 ### Models
 
-The following models were used as base learners in the stacking ensemble:
+The final ensemble uses the following models:
 
 - `CatBoostClassifier`
 - `LGBMClassifier`
 - `XGBClassifier`
 
-Hyperparameter optimization was performed separately for each model using `Optuna`. Model performance was evaluated during optimization using stratified cross-validation with `StratifiedKFold` with 3 folds.
+Hyperparameter optimization was performed separately for each model using `Optuna`. Model performance was evaluated using stratified cross-validation with `StratifiedKFold` with 3 folds.
+
+Final result:
+
+- OOF predictions for each model
+- weighted blend with weights optimized by `Optuna`
+- `/predict` API endpoint for inference
 
 ## Technology stack
 
